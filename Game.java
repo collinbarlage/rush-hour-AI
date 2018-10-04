@@ -3,7 +3,7 @@ import java.util.Vector;
 
 public class Game implements java.io.Serializable {
     IO io = new IO();
-    private Vector<Question> questions = new Vector<Question>();
+    // private Vector<Question> questions = new Vector<Question>();
 
     public Game() {
         io.outputln("making default game");
