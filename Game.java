@@ -14,7 +14,7 @@ public class Game implements java.io.Serializable {
     }
 
     public void display() {
-        io.outputln("\n\n----------------------------------------------");
+        io.outputln("displaying game");
 
     }
 
