@@ -14,13 +14,12 @@ public class Main {
 
         // get args
         String command = args[0];
-        String arg     = "";
-        if (args.length > 1) arg = args[1];
-        io.outputln("command: "+ command + "\nArg: "+ arg + "\n");
+        String input     = "";
+        if (inputs.length > 1) input = args[1];
 
         // create game board
         Board newBoard = new Board();  
-        newBoard.load(arg);
+        newBoard.load(input);
         newBoard.display();
 
 
