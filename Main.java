@@ -12,7 +12,7 @@ public class Main {
 
         String command = args[0];
         String arg     = "";
-        if (args.length > 1) arg = args[1]
+        if (args.length > 1) arg = args[1];
 
         io.outputln("command: "+ command + "\nArg: "+ arg);
 
