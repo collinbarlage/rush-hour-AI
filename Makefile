@@ -3,10 +3,10 @@ PHONY: all clean
 all: run
 
 Main.class: Main.java IO.java Game.java Board.java
-        javac $^
+	javac $^
 
 run: Main.class
-        java Main
+	java Main
 
 clean:
-        -rm -f *.class
+	-rm -f *.class
