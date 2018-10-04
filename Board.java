@@ -31,16 +31,30 @@ public class Board implements java.io.Serializable {
         return boardArray[x][y];
     }
 
+    public String getLine(int y) {
+        String str = "|"; // left wall
+        if (y == 0 || y == 7) { return " ------ "; } // top and bottom
+        for (int i=0; i<6; i++) { str += boardArray[i][y]; }
+        str += (y == 3)? "" : "|"; // right wall
+        return str;
+    }    
+
     public void display() {
-        io.outputln(" ------ ");
-        for (int j=0; j<6; j++) {
-            io.output("|");
-            for (int i=0; i<6; i++) io.output(boardArray[i][j]);
-            if (j == 2) { io.output("\n"); }
-            else { io.output("|\n"); }
+        for (int y=0; y<8; y++) {
+            io.outputln(getLine(y));
         }
-        io.outputln(" ------ ");
     }
+
+    // public void display() {
+    //     io.outputln(" ------ ");
+    //     for (int j=0; j<6; j++) {
+    //         io.output("|");
+    //         for (int i=0; i<6; i++) io.output(boardArray[i][j]);
+    //         if (j == 2) { io.output("\n"); }
+    //         else { io.output("|\n"); }
+    //     }
+    //     io.outputln(" ------ ");
+    // }
 
 
 }
