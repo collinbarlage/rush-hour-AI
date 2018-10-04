@@ -1,6 +1,6 @@
 public class Main {
 
-    public static void main(String[] args) {
+    public static int main(String[] args) {
 
         IO io = new IO();
 
@@ -30,6 +30,7 @@ public class Main {
 
 
         io.outputln("\n");
+        return 1;
     }
 
 }
