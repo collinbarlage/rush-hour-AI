@@ -2,6 +2,7 @@ public class Main {
 
     public static void main(String[] args) {
         IO io = new IO();
+        
         io.outputln("\n  R U S H     H O U R\n-----------------------");
         io.outputln(" Collin Barlage CS 380\n");
 
@@ -17,13 +18,28 @@ public class Main {
         String input     = "";
         if (args.length > 1) { input = args[1]; }
 
-        // create game board
+        // create and load game board
         Board newBoard = new Board();  
         newBoard.load(input);
-        newBoard.display();
 
+        // execute command
+        switch (command) {
+            case "print": 
+                newBoard.display();
+                break;
 
+            case "done": // return True or False if xx car can gtfo
+                //TODO
+                break;
 
+            case "next":
+                //TODO
+                break;
+
+            default:
+                System.out.println("Erk, invalid command argument :(");
+                break;
+        }
 
         io.outputln("\n");
     }
