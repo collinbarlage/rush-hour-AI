@@ -1,6 +1,6 @@
 public class Main {
 
-    public static int main(String[] args) {
+    public static void main(String[] args) {
 
         IO io = new IO();
 
@@ -12,7 +12,7 @@ public class Main {
         if (args.length < 1) {
             io.outputln("YIKES you didn't give me a command argument");
             io.outputln("Try running something like  > sh run.sh command");
-            return 1;
+            return;
         }
         String command = args[0];
         String arg     = "";
@@ -30,7 +30,6 @@ public class Main {
 
 
         io.outputln("\n");
-        return 1;
     }
 
 }
