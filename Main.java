@@ -10,7 +10,7 @@ public class Main {
         io.outputln(" Collin Barlage CS 380\n");
         io.outputln("Args: ");
 
-        for (int i = 0; i < args.length; i++) System.out.print(args[i]);
+        for (int i = 0; i < args.length; i++) io.outputln(args[i]);
 
         io.outputln("");
 
