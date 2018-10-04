@@ -15,7 +15,7 @@ public class Main {
         // get args
         String command = args[0];
         String input     = "";
-        if (inputs.length > 1) { input = args[1]; }
+        if (args.length > 1) { input = args[1]; }
 
         // create game board
         Board newBoard = new Board();  
