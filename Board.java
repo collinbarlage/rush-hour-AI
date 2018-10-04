@@ -10,19 +10,19 @@ public class Board implements java.io.Serializable {
     }
 
     public void load(String init) {
-        Vector<char> chars = new Vector<char>();
+        Vector<String> input = new Vector<String>();
         for (int i=0; i<init.length(); i++) {
-            if (init.charAt(i) != '|') chars.add(init.charAt(i));
+            if (init.charAt(i) != '|') input.add("" + init.charAt(i));
         }
 
-        if(chars.size() != 36) {
+        if(input.size() != 36) {
             io.outputln("Oh geez, something went wrong. Check your argument string");
             return;
         }
 
-        // load  chars onto board
+        // load  input onto board
         for (int j=0; j<6; j++) {
-            for (int i=0; i<6; i++) boardArray[i][j] = chars.get(j*6 + i);
+            for (int i=0; i<6; i++) boardArray[i][j] = input.get(j*6 + i);
         }
 
     }
