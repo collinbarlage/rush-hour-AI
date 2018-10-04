@@ -36,8 +36,8 @@ public class Board implements java.io.Serializable {
         for (int j=0; j<6; j++) {
             io.output("|");
             for (int i=0; i<6; i++) io.output(boardArray[i][j]);
-            if (j == 3) { io.output("|\n"); }
-            else { io.output("\n"); }
+            if (j == 3) { io.output("\n"); }
+            else { io.output("|\n"); }
         }
         io.outputln(" ------ ");
     }
