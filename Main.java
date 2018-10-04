@@ -6,10 +6,14 @@ public class Main {
 
         boolean error = true;
 
-        io.outputln("\n  R U S H   H O U R\n----------------------");
+        io.outputln("\n  R U S H    H O U R\n-----------------------");
         io.outputln(" Collin Barlage CS 380\n");
-        io.outputln("Args: ");
 
+        if (args.length < 1) {
+            io.outputln("YIKES you didn't give me a command argument");
+            io.outputln("Try running something like  > sh run.sh command");
+            return 1;
+        }
         String command = args[0];
         String arg     = "";
         if (args.length > 1) arg = args[1];
