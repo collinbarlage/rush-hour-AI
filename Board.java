@@ -22,7 +22,7 @@ public class Board implements java.io.Serializable {
 
         // load  chars onto board
         for (int j=0; j<6; j++) {
-            for (int i=0; i<6; i++) { boardArray[i,j] = chars.get(j*6 + i); }
+            for (int i=0; i<6; i++) boardArray[i][j] = chars.get(j*6 + i);
         }
 
     }
@@ -35,7 +35,7 @@ public class Board implements java.io.Serializable {
         io.outputln(" ------ ");
         for (int j=0; j<6; j++) {
             io.output("|");
-            for (int i=0; i<6; i++) { io.output(boardArray[i,j]); }
+            for (int i=0; i<6; i++) io.output(boardArray[i][j]);
             io.output("|\n");
         }
         io.outputln(" ------ ");
