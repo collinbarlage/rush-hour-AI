@@ -34,7 +34,7 @@ public class Board implements java.io.Serializable {
     public String getLine(int y) {
         String str = "|"; // left wall
         if (y == 0 || y == 7) { return " ------ "; } // top and bottom
-        for (int i=0; i<6; i++) { str += boardArray[i][y]; }
+        for (int i=0; i<6; i++) { str += boardArray[i][y-1]; }
         str += (y == 3)? "" : "|"; // right wall
         return str;
     }    
