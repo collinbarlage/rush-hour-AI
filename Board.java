@@ -30,7 +30,7 @@ public class Board implements java.io.Serializable {
             for (int i=0; i<6; i++) { 
                 if (!boardArray[i][j].equals(" ") && !hasCar(boardArray[i][j])) {
                     // found unique car
-                    int iHorizontal = 0 int iVertical = 0;
+                    int iHorizontal = 0; int iVertical = 0;
                     for (int h=0; h<6; h++) { // check lanes
                         if (boardArray[h][j].equals(boardArray[i][j])) {
                             iHorizontal++;

@@ -27,7 +27,7 @@ public class Car implements java.io.Serializable {
 
     public void display() {
         for (int y=0; y<8; y++) {
-            io.outputln(getLine(y));
+            //io.outputln(getLine(y));
         }
     }
 
