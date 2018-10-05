@@ -2,7 +2,7 @@ public class Main {
 
     public static void main(String[] args) {
         IO io = new IO();
-        
+
         io.outputln("\n  R U S H     H O U R\n-----------------------");
         io.outputln(" Collin Barlage CS 380\n");
 
@@ -32,8 +32,8 @@ public class Main {
                 //TODO
                 break;
 
-            case "next":
-                //TODO
+            case "next": // display all boards of each attempt to move each car +-direction
+                newBoard.next();
                 break;
 
             default:

@@ -3,11 +3,19 @@ import java.util.Vector;
 
 public class Board implements java.io.Serializable {
     IO io = new IO();
+
     private String boardArray[][] = new String[6][6];
+
     private Vector<Car> cars = new Vector<Car>();
+    private Vector<Board> childBoards = new Vector<Board>();
 
     public Board() {
         // default does nothing
+    }
+
+    public Board(Board parent) { // copy const
+         this.boardArray = parent.boardArray;
+         this.cars = parent.cars;
     }
 
     public void load(String init) {
@@ -28,20 +36,20 @@ public class Board implements java.io.Serializable {
         // note where cars are
         for (int j=0; j<6; j++) {
             for (int i=0; i<6; i++) { 
-                if (!boardArray[i][j].equals(" ") && !hasCar(boardArray[i][j])) {
+                if (!tile(i,j).equals(" ") && !hasCar(tile(i,j))) {
                     // found unique car
                     int iHorizontal = 0; int iVertical = 0;
                     for (int h=0; h<6; h++) { // check lanes
-                        if (boardArray[h][j].equals(boardArray[i][j])) {
+                        if (tile(h,j).equals(tile(i,j))) {
                             iHorizontal++;
-                        } else if (boardArray[i][h].equals(boardArray[i][j])) {
+                        } else if (tile(i,h).equals(tile(i,j))) {
                             iVertical++;
                         }
                     }
                     if (iHorizontal < iVertical) {
-                        addCar(boardArray[i][j], i, j, iVertical, true);
+                        addCar(tile(i,j), i, j, iVertical, true);
                     } else {
-                        addCar(boardArray[i][j], i, j, iHorizontal, false);
+                        addCar(tile(i,j), i, j, iHorizontal, false);
                     }
                 } 
             }
@@ -60,14 +68,14 @@ public class Board implements java.io.Serializable {
         return false;
     }
 
-    private String get(int x, int y) {
+    private String tile(int x, int y) {
         return boardArray[x][y];
     }
 
     public String getLine(int y) {
         String str = "|"; // left wall
         if (y == 0 || y == 7) { return " ------ "; } // top and bottom
-        for (int i=0; i<6; i++) { str += boardArray[i][y-1]; }
+        for (int i=0; i<6; i++) { str += tile(i, y-1); }
         str += (y == 3)? "" : "|"; // right wall
         return str;
     }    
@@ -78,16 +86,37 @@ public class Board implements java.io.Serializable {
         }
     }
 
-    // public void display() {
-    //     io.outputln(" ------ ");
-    //     for (int j=0; j<6; j++) {
-    //         io.output("|");
-    //         for (int i=0; i<6; i++) io.output(boardArray[i][j]);
-    //         if (j == 2) { io.output("\n"); }
-    //         else { io.output("|\n"); }
-    //     }
-    //     io.outputln(" ------ ");
-    // }
+    public void next() {
+        for (int c=0; c<cars.size(); c++) {
+            // for each car
+            Board forward = new Board(this)
+            while (forward.canMove(cars.get(c), 1)) {
+                forward.move(cars.get(c), 1);
+                forward.display();
+            }      
+            Board backward = new Board(this)
+            while (backward.canMove(cars.get(c), -1)) {
+                backward.move(cars.get(c), -1);
+                backward.display();
+            }          
+        }
+    }
+
+    private boolean canMove(Car car, int direction) {
+        int [] target = new int[2];
+        target = car.move(direction); 
+        return isVacant(target[0], [1]); 
+    }
+
+    private boolean isVacant(int x, int y) {
+        if (x < 0 || y < 0 || x > 5 || y > 5) { return false; }
+        if (tile(x,y).equals(" ")) { return true ; }
+        return false;
+    } 
+
+    private void move(Car car, int direction) {
+        
+    }
 
 
 }
