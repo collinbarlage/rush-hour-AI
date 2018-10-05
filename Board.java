@@ -6,8 +6,8 @@ public class Board implements java.io.Serializable {
 
     private String boardArray[][] = new String[6][6];
 
-    private Vector<Car> cars = new Vector<Car>();
-    private Vector<Board> childBoards = new Vector<Board>();
+    public Vector<Car> cars = new Vector<Car>();
+    public Vector<Board> childBoards = new Vector<Board>();
 
     public Board() {
         // default does nothing
@@ -88,13 +88,13 @@ public class Board implements java.io.Serializable {
         for (int c=0; c<cars.size(); c++) {
             // for each car
             Board forward = new Board(this);
-            Board backward = new Board(this);
-            while (forward.canMove(cars.get(c), 1)) {
-                forward.move(cars.get(c), 1);
+            while (forward.canMove(forward.cars.get(c), 1)) {
+                forward.move(forward.cars.get(c), 1);
                 forward.display();
             }      
-            while (backward.canMove(cars.get(c), -1)) {
-                backward.move(cars.get(c), -1);
+            Board backward = new Board(this);
+            while (backward.canMove(backward.cars.get(c), -1)) {
+                backward.move(backward.cars.get(c), -1);
                 backward.display();
             }          
         }
