@@ -37,12 +37,12 @@ public class Car implements java.io.Serializable {
             target[1] = yPos - 1;
         } else if(vert && direction > 0) {
             target[0] = xPos;
-            target[1] = getEnd + 1;
+            target[1] = getEnd() + 1;
         } else if(!vert && direction < 0) {
             target[0] = xPos - 1;
             target[1] = yPos;
         } else {
-            target[0] = getEnd + 1;
+            target[0] = getEnd() + 1;
             target[1] = yPos;
         }
         return target;
