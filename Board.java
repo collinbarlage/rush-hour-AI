@@ -89,12 +89,12 @@ public class Board implements java.io.Serializable {
     public void next() {
         for (int c=0; c<cars.size(); c++) {
             // for each car
-            Board forward = new Board(this)
+            Board forward = new Board(this);
             while (forward.canMove(cars.get(c), 1)) {
                 forward.move(cars.get(c), 1);
                 forward.display();
             }      
-            Board backward = new Board(this)
+            Board backward = new Board(this);
             while (backward.canMove(cars.get(c), -1)) {
                 backward.move(cars.get(c), -1);
                 backward.display();
@@ -105,7 +105,7 @@ public class Board implements java.io.Serializable {
     private boolean canMove(Car car, int direction) {
         int [] target = new int[2];
         target = car.move(direction); 
-        return isVacant(target[0], [1]); 
+        return isVacant(target[0], target[1]); 
     }
 
     private boolean isVacant(int x, int y) {
