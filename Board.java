@@ -119,11 +119,12 @@ public class Board implements java.io.Serializable {
     }
 
     private void move(Car car, int direction) {
-        io.outputln("moving " + car.id +" "+ direction);
         int antiX = car.antiTarget(direction)[0];
         int antiY = car.antiTarget(direction)[1];
         int moveX = car.moveTarget(direction)[0];
         int moveY = car.moveTarget(direction)[1];
+        
+        io.outputln("moving " + car.id +" "+ direction "  target: [" + moveX + ", " + moveY + "] anti: [" +antiX+", " + antiY + "]");
 
         if (isInBounds(antiX, antiY)) { boardArray[antiX][antiY] = " "; }
         boardArray[moveX][moveY] = car.id;
