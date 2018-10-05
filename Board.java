@@ -104,7 +104,7 @@ public class Board implements java.io.Serializable {
 
     private boolean canMove(Car car, int direction) {
         int [] target = new int[2];
-        target = car.move(direction); 
+        target = car.moveTarget(direction); 
         return isVacant(target[0], target[1]); 
     }
 
@@ -115,7 +115,13 @@ public class Board implements java.io.Serializable {
     } 
 
     private void move(Car car, int direction) {
-        
+        int antiX = car.antiTarget(direction)[0];
+        int antiY = car.antiTarget(direction)[1];
+        int moveX = car.moveTarget(direction)[0];
+        int moveY = car.moveTarget(direction)[1];
+
+        boardArray[antiX][antiY] = " ";
+        boardArray[moveX][moveY] = car.id;
     }
 
 

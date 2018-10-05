@@ -4,11 +4,11 @@ import java.util.Vector;
 public class Car implements java.io.Serializable {
     IO io = new IO();
     
-    public int size;
-    public int xPos; // 0 - 5
-    public int yPos; // 0 - 5
     public String id; 
-    public boolean vert;
+    private int size;
+    private int xPos; // 0 - 5
+    private int yPos; // 0 - 5
+    private boolean vert;
 
 
     public Car() {
@@ -25,12 +25,13 @@ public class Car implements java.io.Serializable {
         io.outputln("constructed car "+ id + " at [" + xPos + ", " + yPos + "] with size " + size + ". VERT = " + vert);
     }
 
+
     public int getEnd() {
         int start = (vert)? yPos : xPos;
         return start + size - 1;
     }
 
-    public int[] move(int direction) {
+    public int[] moveTarget(int direction) {
         int [] target = new int[2];
         if(vert && direction < 0) {        
             target[0] = xPos;
@@ -47,6 +48,19 @@ public class Car implements java.io.Serializable {
         }
         return target;
     }
+
+    public int[] antiTarget(int direction) {
+        return moveTarget(direction * -1);
+    }
+
+    public void move(int direction) {
+        if(vert) {
+            yPos += direction;
+        } else {
+            xPos += direction;
+        }
+    }
+
 
 
 }
