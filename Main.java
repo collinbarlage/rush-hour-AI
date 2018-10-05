@@ -33,7 +33,7 @@ public class Main {
                 break;
 
             case "next": // display all boards of each attempt to move each car +-direction
-                for (int c=0; c<cars.size(); c++) {
+                for (int c=0; c<newBoard.cars.size(); c++) {
                     // for each car
                     Board forward = new Board(newBoard);
                     while (forward.canMove(forward.cars.get(c), 1)) {
