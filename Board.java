@@ -14,8 +14,9 @@ public class Board implements java.io.Serializable {
     }
 
     public Board(Board parent) { // copy const
-         this.boardArray = parent.boardArray;
-         this.cars = parent.cars;
+         boardArray = parent.boardArray;
+         cars = parent.cars;
+
     }
 
     public void load(String init) {
