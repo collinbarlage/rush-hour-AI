@@ -85,23 +85,23 @@ public class Board implements java.io.Serializable {
         }
     }
 
-    private boolean canMove(Car car, int direction) {
+    public boolean canMove(Car car, int direction) {
         int [] target = new int[2];
         target = car.moveTarget(direction); 
         return isVacant(target[0], target[1]); 
     }
 
-    private boolean isVacant(int x, int y) {
+    public boolean isVacant(int x, int y) {
         if (isInBounds(x, y) && tile(x,y).equals(" ")) { return true ; }
         return false;
     } 
 
-    private boolean isInBounds(int x, int y) {
+    public boolean isInBounds(int x, int y) {
         if (x < 0 || y < 0 || x > 5 || y > 5) { return false; }
         return true;
     }
 
-    private void move(Car car, int direction) {
+    public void move(Car car, int direction) {
         int antiX = car.antiTarget(direction)[0];
         int antiY = car.antiTarget(direction)[1];
         int moveX = car.moveTarget(direction)[0];

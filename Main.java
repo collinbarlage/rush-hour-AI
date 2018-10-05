@@ -47,7 +47,7 @@ public class Main {
                     }          
                 }
                 io.outputln("og:");
-                newBoard.display()
+                newBoard.display();
                 break;
 
             default:
