@@ -51,20 +51,7 @@ public class Car implements java.io.Serializable {
 
     public int[] antiTarget(int direction) {
         int [] target = new int[2];
-        if(vert && direction < 0) {        
-            target[0] = xPos;
-            target[1] = getEnd();
-        } else if(vert && direction > 0) {
-            target[0] = xPos;
-            target[1] = yPos;
-            
-        } else if(!vert && direction < 0) {
-            target[0] = getEnd();
-            target[1] = yPos;
-        } else {
-            target[0] = xPos;
-            target[1] = yPos;
-        }
+        target = moveTarget(direction * -1);
         return target;
     }
 
