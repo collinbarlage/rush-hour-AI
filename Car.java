@@ -50,11 +50,19 @@ public class Car implements java.io.Serializable {
     }
 
     public int[] antiTarget(int direction) {
+        int [] antiTarget = new int[2];
+        int [] target = new int[2];
+        target = moveTarget(direction * -1);
+
         if(vert) {
-            return moveTarget(direction * -1);
+            antiTarget[0] = target[0];
+            antiTarget[1] = target[1] + direction;
+
         } else {
-            return moveTarget(direction * -1);
+            antiTarget[0] = target[0] + direction;
+            antiTarget[1] = target[1];
         }
+        return antiTarget;
     }
 
     public void move(int direction) {
