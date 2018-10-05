@@ -109,7 +109,7 @@ public class Board implements java.io.Serializable {
     }
 
     private boolean isVacant(int x, int y) {
-        if (tile(x,y).equals(" ") && isInBounds(x, y)) { return true ; }
+        if (isInBounds(x, y) && tile(x,y).equals(" ")) { return true ; }
         return false;
     } 
 
