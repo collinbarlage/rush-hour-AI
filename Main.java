@@ -33,11 +33,25 @@ public class Main {
                 break;
 
             case "next": // display all boards of each attempt to move each car +-direction
-                newBoard.next();
+                for (int c=0; c<cars.size(); c++) {
+                    // for each car
+                    Board forward = new Board(newBoard);
+                    while (forward.canMove(forward.cars.get(c), 1)) {
+                        forward.move(forward.cars.get(c), 1);
+                        forward.display();
+                    }      
+                    Board backward = new Board(newBoard);
+                    while (backward.canMove(backward.cars.get(c), -1)) {
+                        backward.move(backward.cars.get(c), -1);
+                        backward.display();
+                    }          
+                }
+                io.outputln("og:");
+                newBoard.display()
                 break;
 
             default:
-                System.out.println("Erk, invalid command argument :(");
+                io.outputln("Erk, invalid command argument :(");
                 break;
         }
 

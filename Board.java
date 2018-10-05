@@ -85,24 +85,6 @@ public class Board implements java.io.Serializable {
         }
     }
 
-    public void next() {
-        for (int c=0; c<cars.size(); c++) {
-            // for each car
-            Board forward = new Board(this);
-            while (forward.canMove(forward.cars.get(c), 1)) {
-                forward.move(forward.cars.get(c), 1);
-                forward.display();
-            }      
-            this.display();
-            Board backward = new Board(this);
-            while (backward.canMove(backward.cars.get(c), -1)) {
-                backward.move(backward.cars.get(c), -1);
-                backward.display();
-            }          
-            this.display();
-        }
-    }
-
     private boolean canMove(Car car, int direction) {
         int [] target = new int[2];
         target = car.moveTarget(direction); 
