@@ -40,11 +40,8 @@ public class Board implements java.io.Serializable {
                     // found unique car
                     int iHorizontal = 0; int iVertical = 0;
                     for (int h=0; h<6; h++) { // check lanes
-                        if (tile(h,j).equals(tile(i,j))) {
-                            iHorizontal++;
-                        } else if (tile(i,h).equals(tile(i,j))) {
-                            iVertical++;
-                        }
+                        if (tile(h,j).equals(tile(i,j))) { iHorizontal++; } 
+                        if (tile(i,h).equals(tile(i,j))) { iVertical++; }
                     }
                     io.outputln("iHorizontal "+ iHorizontal + " iVertical " + iVertical);
                     if (iHorizontal < iVertical) {
