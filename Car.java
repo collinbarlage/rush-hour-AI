@@ -31,15 +31,19 @@ public class Car implements java.io.Serializable {
     }
 
     public int[] move(int direction) {
-        int [] target = new int[2]
+        int [] target = new int[2];
         if(vert && direction < 0) {        
-            target = { xPos, yPos - 1 };
+            target[0] = xPos;
+            target[1] = yPos - 1;
         } else if(vert && direction > 0) {
-            target = { xPos, getEnd + 1 };
+            target[0] = xPos;
+            target[1] = getEnd + 1;
         } else if(!vert && direction < 0) {
-            target = { xPos - 1, yPos };
+            target[0] = xPos - 1;
+            target[1] = yPos;
         } else {
-            target = { getEnd + 1, yPos };
+            target[0] = getEnd + 1;
+            target[1] = yPos;
         }
         return target;
     }
