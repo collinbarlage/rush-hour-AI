@@ -121,7 +121,7 @@ public class Board implements java.io.Serializable {
         int moveX = car.moveTarget(direction)[0];
         int moveY = car.moveTarget(direction)[1];
 
-        boardArray[antiX][antiY] = " ";
+        if (isVacant(antiX, antiY)) { boardArray[antiX][antiY] = " "; }
         boardArray[moveX][moveY] = car.id;
     }
 
