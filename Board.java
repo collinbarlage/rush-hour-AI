@@ -109,10 +109,14 @@ public class Board implements java.io.Serializable {
     }
 
     private boolean isVacant(int x, int y) {
-        if (x < 0 || y < 0 || x > 5 || y > 5) { return false; }
-        if (tile(x,y).equals(" ")) { return true ; }
+        if (tile(x,y).equals(" ") && isInBounds(x, y)) { return true ; }
         return false;
     } 
+
+    private boolean isInBounds(int x, int y) {
+        if (x < 0 || y < 0 || x > 5 || y > 5) { return false; }
+        return true;
+    }
 
     private void move(Car car, int direction) {
         io.outputln("moving " + car.id +" "+ direction);
@@ -121,7 +125,7 @@ public class Board implements java.io.Serializable {
         int moveX = car.moveTarget(direction)[0];
         int moveY = car.moveTarget(direction)[1];
 
-        if (isVacant(antiX, antiY)) { boardArray[antiX][antiY] = " "; }
+        if (isInBounds(antiX, antiY)) { boardArray[antiX][antiY] = " "; }
         boardArray[moveX][moveY] = car.id;
     }
 
