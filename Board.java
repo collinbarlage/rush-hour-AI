@@ -46,6 +46,7 @@ public class Board implements java.io.Serializable {
                             iVertical++;
                         }
                     }
+                    io.outputln("iHorizontal "+ iHorizontal + " iVertical " + iVertical);
                     if (iHorizontal < iVertical) {
                         addCar(tile(i,j), i, j, iVertical, true);
                     } else {
