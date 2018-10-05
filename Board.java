@@ -92,11 +92,13 @@ public class Board implements java.io.Serializable {
                 forward.move(forward.cars.get(c), 1);
                 forward.display();
             }      
+            this.display();
             Board backward = new Board(this);
             while (backward.canMove(backward.cars.get(c), -1)) {
                 backward.move(backward.cars.get(c), -1);
                 backward.display();
             }          
+            this.display();
         }
     }
 
