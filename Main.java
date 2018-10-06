@@ -36,6 +36,8 @@ public class Main {
                 for (int c=0; c<newBoard.cars.size(); c++) {
                     // for each car
                     Board forward = new Board(newBoard);
+                    io.outputln("forward boi:");
+                    forward.display();
                     while (forward.canMove(forward.cars.get(c), 1)) {
                         forward.move(forward.cars.get(c), 1);
                         forward.display();
