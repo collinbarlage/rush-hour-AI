@@ -20,7 +20,7 @@ public class Board implements java.io.Serializable {
 
         Vector<Car> newCars = new Vector<Car>();
         for (int i=0; i<cars.size(); i++) {
-            Car newCar = new Car(cars.get(i));
+            Car newCar = new Car(parent.cars.get(i));
         }
         this.cars = newCars;
     }

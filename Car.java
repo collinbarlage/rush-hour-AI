@@ -15,7 +15,7 @@ public class Car implements java.io.Serializable {
         // default does nothing
     }
 
-    public Car(Board parent) { // copy constuctor
+    public Car(Car parent) { // copy constuctor
         this.id = parent.id;
         this.size = parent.size;
         this.xPos = parent.xPos;
