@@ -13,10 +13,16 @@ public class Board implements java.io.Serializable {
         // default does nothing
     }
 
-    public Board(Board parent) { // copy const
-         boardArray = parent.boardArray;
-         cars = parent.cars;
+    public Board(Board parent) { // copy constuctor
+        String newBoardArray  [][] = new String[6][6];
+        newBoardArray = parent.boardArray;
+        this.boardArray = newBoardArray;
 
+        Vector<Car> newCars = new Vector<Car>();
+        for (int i=0; i<cars.size(); i++) {
+            Car newCar = new Car(cars.get(i));
+        }
+        this.cars = newCars;
     }
 
     public void load(String init) {
