@@ -19,7 +19,7 @@ public class Board implements java.io.Serializable {
         this.boardArray = newBoardArray;
 
         Vector<Car> newCars = new Vector<Car>();
-        for (int i=0; i<cars.size(); i++) {
+        for (int i=0; i<parent.cars.size(); i++) {
             Car newCar = new Car(parent.cars.get(i));
             newCars.add(newCar);
         }
@@ -90,6 +90,10 @@ public class Board implements java.io.Serializable {
         for (int y=0; y<8; y++) {
             io.outputln(getLine(y));
         }
+		  io.outputln("cars:");
+		  for (int i=0; i<cars.size(); i++) {
+		  		io.outputln("car: " + cars.get(i).id);
+		  }
     }
 
     public boolean canMove(Car car, int direction) {
