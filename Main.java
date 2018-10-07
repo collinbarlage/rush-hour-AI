@@ -44,7 +44,9 @@ public class Main {
                     while (backward.canMove(backward.cars.get(c), -1)) {
                         backward.move(backward.cars.get(c), -1);
                         backward.display();
-                    }          
+                    }       
+                    io.outputln("og:");
+                    newBoard.display();   
                 }
                 break;
 

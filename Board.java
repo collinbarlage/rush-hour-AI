@@ -51,7 +51,6 @@ public class Board implements java.io.Serializable {
                         if (tile(h,j).equals(tile(i,j))) { iHorizontal++; } 
                         if (tile(i,h).equals(tile(i,j))) { iVertical++; }
                     }
-                    io.outputln("iHorizontal "+ iHorizontal + " iVertical " + iVertical);
                     if (iHorizontal < iVertical) {
                         addCar(tile(i,j), i, j, iVertical, true);
                     } else {
@@ -90,10 +89,6 @@ public class Board implements java.io.Serializable {
         for (int y=0; y<8; y++) {
             io.outputln(getLine(y));
         }
-		  io.outputln("cars:");
-		  for (int i=0; i<cars.size(); i++) {
-		  		io.outputln("car: " + cars.get(i).id);
-		  }
     }
 
     public boolean canMove(Car car, int direction) {
@@ -118,7 +113,7 @@ public class Board implements java.io.Serializable {
         int moveX = car.moveTarget(direction)[0];
         int moveY = car.moveTarget(direction)[1];
         
-        io.outputln("moving " + car.id +" "+ direction+ "  target: [" + moveX + ", " + moveY + "] anti: [" +antiX+", " + antiY + "]");
+        // io.outputln("moving " + car.id +" "+ direction+ "  target: [" + moveX + ", " + moveY + "] anti: [" +antiX+", " + antiY + "]");
 
         if (isInBounds(antiX, antiY)) { boardArray[antiX][antiY] = " "; }
         boardArray[moveX][moveY] = car.id;

@@ -30,7 +30,7 @@ public class Car implements java.io.Serializable {
         size = carSize;
         vert = carVert;
 
-        io.outputln("constructed car "+ id + " at [" + xPos + ", " + yPos + "] with size " + size + ". VERT = " + vert);
+        // io.outputln("constructed car "+ id + " at [" + xPos + ", " + yPos + "] with size " + size + ". VERT = " + vert);
     }
 
 
