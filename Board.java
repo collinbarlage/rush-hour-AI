@@ -115,8 +115,8 @@ public class Board implements java.io.Serializable {
         
         // io.outputln("moving " + car.id +" "+ direction+ "  target: [" + moveX + ", " + moveY + "] anti: [" +antiX+", " + antiY + "]");
 
-        if (isInBounds(antiX, antiY)) { boardArray[antiX][antiY] = " "; }
-        boardArray[moveX][moveY] = car.id;
+        if (isInBounds(antiX, antiY)) { this.boardArray[antiX][antiY] = " "; }
+        this.boardArray[moveX][moveY] = car.id;
 
         // car.move(direction);
     }
