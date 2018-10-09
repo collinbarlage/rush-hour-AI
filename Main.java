@@ -40,13 +40,13 @@ public class Main {
                         forward.move(forward.cars.get(c), 1);
                         forward.display();
                     }      
-                    // Board backward = new Board(newBoard);
-                    // while (backward.canMove(backward.cars.get(c), -1)) {
-                    //     backward.move(backward.cars.get(c), -1);
-                    //     backward.display();
-                    // }       
-                    io.outputln("og:");
-                    newBoard.display();   
+                     Board backward = new Board(newBoard);
+                     while (backward.canMove(backward.cars.get(c), -1)) {
+                         backward.move(backward.cars.get(c), -1);
+                         backward.display();
+                     }       
+                    //io.outputln("og:");
+                    //newBoard.display();   
                 }
                 break;
 

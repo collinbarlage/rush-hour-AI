@@ -17,7 +17,7 @@ public class Board implements java.io.Serializable {
         String newBoardArray  [][] = new String[6][6];
         for (int j=0; j<6; j++) {
             for (int i=0; i<6; i++) { 
-                newBoardArray[i][j] = boardArray[i][j];
+                newBoardArray[i][j] = parent.tile(i,j);
             }
         }
         this.boardArray = newBoardArray;
@@ -77,7 +77,7 @@ public class Board implements java.io.Serializable {
         return false;
     }
 
-    private String tile(int x, int y) {
+    public String tile(int x, int y) {
         return boardArray[x][y];
     }
 
