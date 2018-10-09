@@ -37,15 +37,14 @@ public class Main {
                     // for each car
                     Board forward = new Board(newBoard);
                     while (forward.canMove(forward.cars.get(c), 1)) {
-                        //TODO BUG: it's probably because forward.cars.get(c) isnt changing. either not getting copyed right or .move aint working
                         forward.move(forward.cars.get(c), 1);
                         forward.display();
                     }      
-                    // Board backward = new Board(newBoard);
-                    // while (backward.canMove(backward.cars.get(c), -1)) {
-                    //     backward.move(backward.cars.get(c), -1);
-                    //     backward.display();
-                    // }       
+                    Board backward = new Board(newBoard);
+                    while (backward.canMove(backward.cars.get(c), -1)) {
+                        backward.move(backward.cars.get(c), -1);
+                        backward.display();
+                    }       
                     //io.outputln("og:");
                     //newBoard.display();   
                 }
