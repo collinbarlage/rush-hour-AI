@@ -122,7 +122,7 @@ public class Board implements java.io.Serializable {
         if (isInBounds(antiX, antiY)) { this.boardArray[antiX][antiY] = " "; }
         this.boardArray[moveX][moveY] = car.id;
 
-        // car.move(direction);
+        car.move(direction);
     }
 
 
