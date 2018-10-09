@@ -15,7 +15,11 @@ public class Board implements java.io.Serializable {
 
     public Board(Board parent) { // copy constuctor
         String newBoardArray  [][] = new String[6][6];
-        newBoardArray = parent.boardArray;
+        for (int j=0; j<6; j++) {
+            for (int i=0; i<6; i++) { 
+                newBoardArray[i][j] = boardArray[i][j];
+            }
+        }
         this.boardArray = newBoardArray;
 
         Vector<Car> newCars = new Vector<Car>();
