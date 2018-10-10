@@ -51,6 +51,7 @@ public class Main {
                     //io.outputln("og:");
                     //newBoard.display();   
                 }
+                printBoards(nextBoards);
                 break;
 
             default:
