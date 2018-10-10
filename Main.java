@@ -48,10 +48,8 @@ public class Main {
                         backward.move(backward.cars.get(c), -1);
                         nextBoards.add(backward);
                     }       
-                    //io.outputln("og:");
-                    //newBoard.display();   
                 }
-                printBoards(nextBoards);
+                newBoard.printBoards(nextBoards);
                 break;
 
             default:
@@ -60,12 +58,6 @@ public class Main {
         }
 
         io.outputln("\n");
-    }
-
-    public void printBoards(Vector<Board> boards) {
-        for (int i=0; i<boards.size(); i++) {
-            boards.get(i).display();
-        }
     }
 
 }

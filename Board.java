@@ -125,5 +125,11 @@ public class Board implements java.io.Serializable {
         car.move(direction);
     }
 
+    public void printBoards(Vector<Board> boards) {
+        for (int i=0; i<boards.size(); i++) {
+            boards.get(i).display();
+        }
+    }
+
 
 }
