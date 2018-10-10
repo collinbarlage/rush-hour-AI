@@ -143,13 +143,9 @@ public class Board implements java.io.Serializable {
         char[] lineChars = line.toCharArray();
         int x = 0;
         for (int i=7; i>=0; i--) {
-            io.log("-> "+lineChars[i]);
             if(x == 2) { return true; }
-            if(lineChars[i] == 'x') {
-                x++;
-            } else if(lineChars[i] != ' ') {
-                return false;
-            }
+            if(lineChars[i] == 'x') { x++; } 
+            else if(lineChars[i] != ' ') { return false; }
         }
         io.log("whoa.... isDone() messed up");
         return false;
