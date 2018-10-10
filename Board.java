@@ -126,8 +126,15 @@ public class Board implements java.io.Serializable {
     }
 
     public void printBoards(Vector<Board> boards) {
-        for (int i=0; i<boards.size(); i++) {
-            boards.get(i).display();
+        String lines[] = new String[8];
+
+        for (int b=0; b<boards.size(); b++) {
+            for (int l=0; l<8; l++) {
+                lines[l] = boards.get(b).getLine(l) + " ";
+            }
+        }
+        for (int l=0; l<8; l++) {
+            io.output(lines[l]);
         }
     }
 
