@@ -11,7 +11,7 @@ public class IO implements java.io.Serializable {
         return response;
     }
 
-    public void outputln(String x) {
+    public void log(String x) {
         System.out.println(x);
     }
 

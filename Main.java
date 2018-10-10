@@ -5,13 +5,13 @@ public class Main {
     public static void main(String[] args) {
         IO io = new IO();
 
-        io.outputln("\n  R U S H     H O U R\n-----------------------");
-        io.outputln(" Collin Barlage CS 380\n");
+        io.log("\n  R U S H     H O U R\n-----------------------");
+        io.log(" Collin Barlage CS 380\n");
 
         // check for errors 
         if (args.length < 1) {
-            io.outputln("YIKES you didn't give me a command argument");
-            io.outputln("Try running something like  > sh run.sh command\n\n");
+            io.log("YIKES you didn't give me a command argument");
+            io.log("Try running something like  > sh run.sh command\n\n");
             return;
         }
 
@@ -53,11 +53,11 @@ public class Main {
                 break;
 
             default:
-                io.outputln("Erk, invalid command argument :(");
+                io.log("Erk, invalid command argument :(");
                 break;
         }
 
-        io.outputln("\n");
+        io.log("\n");
     }
 
 }

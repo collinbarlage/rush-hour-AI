@@ -37,7 +37,7 @@ public class Board implements java.io.Serializable {
         }
         // check if error
         if(input.size() != 36) {
-            io.outputln("Oh geez, something went wrong. Check your argument string"); return;
+            io.log("Oh geez, something went wrong. Check your argument string"); return;
         }
         // load input onto board
         for (int j=0; j<6; j++) {
@@ -91,7 +91,7 @@ public class Board implements java.io.Serializable {
 
     public void display() {
         for (int y=0; y<8; y++) {
-            io.outputln(getLine(y));
+            io.log(getLine(y));
         }
     }
 
@@ -117,7 +117,7 @@ public class Board implements java.io.Serializable {
         int moveX = car.moveTarget(direction)[0];
         int moveY = car.moveTarget(direction)[1];
         
-        // io.outputln("moving " + car.id +" "+ direction+ "  target: [" + moveX + ", " + moveY + "] anti: [" +antiX+", " + antiY + "]");
+        // io.log("moving " + car.id +" "+ direction+ "  target: [" + moveX + ", " + moveY + "] anti: [" +antiX+", " + antiY + "]");
 
         if (isInBounds(antiX, antiY)) { this.boardArray[antiX][antiY] = " "; }
         this.boardArray[moveX][moveY] = car.id;
@@ -126,16 +126,15 @@ public class Board implements java.io.Serializable {
     }
 
     public void printBoards(Vector<Board> boards) {
-        String lines[] = new String[8];
+        String lines[] = {"", "", "", "", "", "", "", ""};
 
         for (int b=0; b<boards.size(); b++) {
             for (int l=0; l<8; l++) {
                 lines[l] += boards.get(b).getLine(l) + " ";
-                io.outputln("added line" + lines[l]);
             }
         }
         for (int l=0; l<8; l++) {
-            io.outputln(lines[l]);
+            io.log(lines[l]);
         }
     }
 
