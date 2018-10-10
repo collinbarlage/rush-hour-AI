@@ -33,17 +33,18 @@ public class Main {
                 break;
 
             case "next": // display all boards of each attempt to move each car +-direction
+                Vector<Board> nextBoards = new Vector<Board>();
                 for (int c=0; c<newBoard.cars.size(); c++) {
                     // for each car
                     Board forward = new Board(newBoard);
                     while (forward.canMove(forward.cars.get(c), 1)) {
                         forward.move(forward.cars.get(c), 1);
-                        forward.display();
+                        nextBoards.add(forward)
                     }      
                     Board backward = new Board(newBoard);
                     while (backward.canMove(backward.cars.get(c), -1)) {
                         backward.move(backward.cars.get(c), -1);
-                        backward.display();
+                        nextBoards.add(backward)
                     }       
                     //io.outputln("og:");
                     //newBoard.display();   
@@ -56,6 +57,12 @@ public class Main {
         }
 
         io.outputln("\n");
+    }
+
+    public void printBoards(Vector<Board> boards) {
+        for (int i=0; i<boards.size(); i++) {
+            boards.get(i).display();
+        }
     }
 
 }
