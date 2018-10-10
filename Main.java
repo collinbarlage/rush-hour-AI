@@ -39,12 +39,12 @@ public class Main {
                     Board forward = new Board(newBoard);
                     while (forward.canMove(forward.cars.get(c), 1)) {
                         forward.move(forward.cars.get(c), 1);
-                        nextBoards.add(forward)
+                        nextBoards.add(forward);
                     }      
                     Board backward = new Board(newBoard);
                     while (backward.canMove(backward.cars.get(c), -1)) {
                         backward.move(backward.cars.get(c), -1);
-                        nextBoards.add(backward)
+                        nextBoards.add(backward);
                     }       
                     //io.outputln("og:");
                     //newBoard.display();   
