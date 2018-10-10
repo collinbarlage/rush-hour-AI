@@ -2,8 +2,6 @@
 
 *Collin Barlage*
 
-CS 380 - Artificial Intelligence -  Fall 2018
-
 Implemented in Java
 
 ## How to run in Unix:
