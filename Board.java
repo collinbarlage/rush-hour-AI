@@ -130,11 +130,11 @@ public class Board implements java.io.Serializable {
 
         for (int b=0; b<boards.size(); b++) {
             for (int l=0; l<8; l++) {
-                lines[l] = boards.get(b).getLine(l) + " ";
+                lines[l] += boards.get(b).getLine(l) + " ";
             }
         }
         for (int l=0; l<8; l++) {
-            io.output(lines[l]);
+            io.outputln(lines[l]);
         }
     }
 
