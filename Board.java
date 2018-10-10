@@ -151,7 +151,7 @@ public class Board implements java.io.Serializable {
                 return false;
             }
         }
-        io.log('whoa.... isDone() messed up');
+        io.log("whoa.... isDone() messed up");
         return false;
     }
 
