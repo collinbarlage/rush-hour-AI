@@ -85,7 +85,7 @@ public class Board implements java.io.Serializable {
         String str = "|"; // left wall
         if (y == 0 || y == 7) { return " ------ "; } // top and bottom
         for (int i=0; i<6; i++) { str += tile(i, y-1); }
-        str += (y == 3)? "" : "|"; // right wall
+        str += (y == 3)? " " : "|"; // right wall
         return str;
     }    
 
@@ -128,7 +128,7 @@ public class Board implements java.io.Serializable {
     public void printBoards(Vector<Board> boards) {
         String lines[] = new String[8];
 
-        for (int b=0; b<boards.size(); b++) {
+        for (int b=1; b<boards.size(); b++) {
             for (int l=0; l<8; l++) {
                 lines[l] += boards.get(b).getLine(l) + " ";
             }
