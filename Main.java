@@ -32,7 +32,11 @@ public class Main {
 
             case "done": // return True or False if xx car can gtfo
                 //TODO
-                io.log(newBoard.isDone());
+                if(newBoard.isDone()) {
+						 io.log("True");
+					 } else {
+						 io.log("False");
+					 }
                 break;
 
             case "next": // display all boards of each attempt to move each car +-direction
