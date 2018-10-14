@@ -5,9 +5,6 @@ public class Main {
     public static void main(String[] args) {
         IO io = new IO();
 
-        io.log("\n  R U S H     H O U R\n-----------------------");
-        io.log(" Collin Barlage CS 380\n");
-
         // check for errors 
         if (args.length < 1) {
             io.log("YIKES you didn't give me a command argument");
