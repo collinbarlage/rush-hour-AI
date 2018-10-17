@@ -177,7 +177,8 @@ public class Board implements java.io.Serializable {
     public void random(int n) {
         Path path = new Path(); // random path to construct
         Board b = this;
-        for (int i=0; i<n; i++) {
+        path.add(b);
+        for (int i=0; i<n-1; i++) {
             Path next = b.next();
             b = next.get(randomInt(next.size()));
             path.add(new Board(b));
