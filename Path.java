@@ -23,6 +23,14 @@ public class Path implements java.io.Serializable {
         boards.add(b);
     }
 
+    public Board get(int i) {
+        return boards.get(i);
+    }
+
+    public int size() {
+        return boards.size();
+    }
+
     public void print() {
         String lines[] = {"", "", "", "", "", "", "", ""};
 

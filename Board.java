@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.Vector;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Board implements java.io.Serializable {
     IO io = new IO();
@@ -169,8 +170,16 @@ public class Board implements java.io.Serializable {
         return path;
     }
 
+    private int randomInt(int max) {
+        return ThreadLocalRandom.current().nextInt(0, max + 1);
+    }
+
     public void random(int n) {
         //
+        for (int i=0; i<n; i++) {
+            Path next = this.next();
+            io.log("random int from " + next.size() + ": "+ randomInt(next.size()));
+        }
     }
 
 
