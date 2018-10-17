@@ -22,7 +22,8 @@ public class Main {
 
         // create and load game board
         Board newBoard = new Board();  
-        newBoard.load(input);
+        if(input == "") { input = "  o aa|  o   |xxo   |ppp  q|     q|     q"; }
+		  newBoard.load(input);
 
         // execute command
         switch (command) {
