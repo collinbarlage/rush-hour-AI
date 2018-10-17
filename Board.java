@@ -151,5 +151,27 @@ public class Board implements java.io.Serializable {
         return false;
     }
 
+    public Path next() {
+        Path path = new Path();
+        for (int c=0; c<newBoard.cars.size(); c++) {
+            // for each car
+            Board forward = new Board(newBoard);
+            while (forward.canMove(forward.cars.get(c), 1)) {
+                forward.move(forward.cars.get(c), 1);
+                path.add(new Board(forward));
+            }      
+            Board backward = new Board(newBoard);
+            while (backward.canMove(backward.cars.get(c), -1)) {
+                backward.move(backward.cars.get(c), -1);
+                path.add(new Board(backward));
+            }       
+        }
+        return path;
+    }
+
+    public void random(int n) {
+        //
+    }
+
 
 }
