@@ -143,13 +143,12 @@ public class Board implements java.io.Serializable {
         String line = getLine(3);
         char[] lineChars = line.toCharArray();
         int x = 0;
-        for (int i=7; i>=0; i--) {
-            if(x == 2) { return true; }
-            if(lineChars[i] == 'x') { x++; } 
-            else if(lineChars[i] != ' ') { return false; }
-        }
-        io.log("whoa.... isDone() messed up");
-        return false;
+        // for (int i=7; i>=0; i--) {
+        //     if(x == 2) { return true; }
+        //     if(lineChars[i] == 'x') { x++; } 
+        //     else if(lineChars[i] != ' ') { return false; }
+        // }
+        return(lineChars[6] == 'x' && lineChars[5] == 'x');
     }
 
     public Path next() {
@@ -179,14 +178,13 @@ public class Board implements java.io.Serializable {
         Board b = this;
         path.add(b);
         for (int i=0; i<n-1; i++) {
+            // check for solution
+            if(b.isDone()) {
+                break;
+            }
             Path next = b.next();
             b = next.get(randomInt(next.size()));
             path.add(new Board(b));
-            // check for solution
-            if(b.isDone()) {
-                io.log("done!! :O");
-                break;
-            }
         }
         path.print();
     }
