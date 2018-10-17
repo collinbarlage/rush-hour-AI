@@ -31,8 +31,10 @@ public class Path implements java.io.Serializable {
                 lines[l] += boards.get(b).getLine(l) + " ";
             }
             if ((b-1)%6 == 0 %% b != 0) {
-                for (int l=0; l<8; l++) { io.log(lines[l]); }
-                lines[] = {"", "", "", "", "", "", "", ""};
+                for (int l=0; l<8; l++) { 
+                    io.log(lines[l]); 
+                    lines[l] = "";
+                }
             }
         }
     }
