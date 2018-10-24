@@ -82,8 +82,8 @@ public class Path implements java.io.Serializable {
             bfsCounter++;
 
             //print parents
-            Path route = new Path;
-            route.add(b)
+            Path route = new Path();
+            route.add(b);
             while (b.hasParent()) {
                 route.add(b);
                 b = b.parent;
