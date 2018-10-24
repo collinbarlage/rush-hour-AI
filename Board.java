@@ -10,6 +10,8 @@ public class Board implements java.io.Serializable {
     public Vector<Car> cars = new Vector<Car>();
     public Vector<Board> childBoards = new Vector<Board>();
 
+    public Board parent;
+
     public Board() {
         // default does nothing
     }
@@ -76,6 +78,10 @@ public class Board implements java.io.Serializable {
             if(carId.equals(cars.get(i).id)) { return true; }
         }
         return false;
+    }
+
+    private boolean hasParent() {
+        return (parent != null);
     }
 
     public String tile(int x, int y) {
@@ -158,11 +164,13 @@ public class Board implements java.io.Serializable {
             Board forward = new Board(this);
             while (forward.canMove(forward.cars.get(c), 1)) {
                 forward.move(forward.cars.get(c), 1);
+                forward.parent = new Board(this);
                 path.add(new Board(forward));
             }      
             Board backward = new Board(this);
             while (backward.canMove(backward.cars.get(c), -1)) {
                 backward.move(backward.cars.get(c), -1);
+                backward.parent = new Board(this);
                 path.add(new Board(backward));
             }       
         }
@@ -188,6 +196,5 @@ public class Board implements java.io.Serializable {
         }
         path.print();
     }
-
 
 }

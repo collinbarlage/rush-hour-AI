@@ -48,6 +48,23 @@ public class Main {
                 newBoard.random(10);
                 break;
 
+            case "bfs": // Breadth first search
+                Path next = newBoard.next();
+                next.bfs();
+                break;
+
+            case "test": // display all boards of each attempt to move each car +-direction
+                Path next = newBoard.next();
+                next.print();
+                io.log('and the parent is:');
+                if(next.get(2).hasParent()) {
+                    next.get(2).parent.display();
+                } else {
+                    log("no Parent found :(");
+                }
+                break;
+
+
             default:
                 io.log("Erk, invalid command argument :(");
                 break;
