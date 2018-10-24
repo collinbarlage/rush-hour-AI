@@ -80,7 +80,7 @@ public class Board implements java.io.Serializable {
         return false;
     }
 
-    private boolean hasParent() {
+    public boolean hasParent() {
         return (parent != null);
     }
 

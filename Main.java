@@ -25,6 +25,8 @@ public class Main {
         if(input == "") { input = "  o aa|  o   |xxo   |ppp  q|     q|     q"; }
 		newBoard.load(input);
 
+        Path next;
+
         // execute command
         switch (command) {
             case "print": 
@@ -40,7 +42,7 @@ public class Main {
                 break;
 
             case "next": // display all boards of each attempt to move each car +-direction
-                Path next = newBoard.next();
+                next = newBoard.next();
                 next.print();
                 break;
 
@@ -49,18 +51,18 @@ public class Main {
                 break;
 
             case "bfs": // Breadth first search
-                Path next = newBoard.next();
-                next.bfs();
+                next = newBoard.next();
+                next.bfs(next);
                 break;
 
             case "test": // display all boards of each attempt to move each car +-direction
-                Path next = newBoard.next();
+                next = newBoard.next();
                 next.print();
                 io.log("and the parent is:");
                 if(next.get(2).hasParent()) {
                     next.get(2).parent.display();
                 } else {
-                    log("no Parent found :(");
+                    io.log("no Parent found :(");
                 }
                 break;
 

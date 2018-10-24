@@ -67,7 +67,7 @@ public class Path implements java.io.Serializable {
 
     public void append(Path p) {
         for(int i=0; i<p.size(); i++) {
-            boards.add(b);
+            boards.add(p.get(i));
         }
     }
 
@@ -93,7 +93,7 @@ public class Path implements java.io.Serializable {
 
 
             if(b.isDone()) {
-                io.log(bfsCounter);
+                io.log("" + bfsCounter);
                 return;
             } else {
                 //build next level
@@ -101,7 +101,7 @@ public class Path implements java.io.Serializable {
             }
         }
 
-        bfsPath(nextLevel);
+        bfs(nextLevel);
         return;
     }
 
