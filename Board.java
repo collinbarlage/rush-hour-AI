@@ -165,6 +165,11 @@ public class Board implements java.io.Serializable {
             while (forward.canMove(forward.cars.get(c), 1)) {
                 forward.move(forward.cars.get(c), 1);
                 forward.parent = new Board(this);
+                if(forward.hasParent()) {
+                    io.log("truuu");
+                } else {
+                    io.log("noooo");
+                }
                 path.add(new Board(forward));
             }      
             Board backward = new Board(this);
