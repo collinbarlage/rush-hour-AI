@@ -73,7 +73,7 @@ public class Path implements java.io.Serializable {
 
 
 
-    private void bfs(Path path) {
+    public void bfs(Path path) {
 
         Path nextLevel = new Path();
 
@@ -89,7 +89,7 @@ public class Path implements java.io.Serializable {
                 b = b.parent;
             }
             route.reversePrint();
-            Board b = path.get(i);
+            b = path.get(i);
 
 
             if(b.isDone()) {
