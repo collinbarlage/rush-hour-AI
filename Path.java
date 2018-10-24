@@ -12,7 +12,7 @@ public class Path implements java.io.Serializable {
         // default does nothing
     }
 
-    public Path(Path parent) { // copy constuctor
+    public Path(Path og) { // copy constuctor
         
     }
 

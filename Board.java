@@ -16,18 +16,20 @@ public class Board implements java.io.Serializable {
         // default does nothing
     }
 
-    public Board(Board parent) { // copy constuctor
+    public Board(Board og) { // copy constuctor
+        this.parent = og.parent;
+
         String newBoardArray  [][] = new String[6][6];
         for (int j=0; j<6; j++) {
             for (int i=0; i<6; i++) { 
-                newBoardArray[i][j] = parent.tile(i,j);
+                newBoardArray[i][j] = og.tile(i,j);
             }
         }
         this.boardArray = newBoardArray;
 
         Vector<Car> newCars = new Vector<Car>();
-        for (int i=0; i<parent.cars.size(); i++) {
-            Car newCar = new Car(parent.cars.get(i));
+        for (int i=0; i<og.cars.size(); i++) {
+            Car newCar = new Car(og.cars.get(i));
             newCars.add(newCar);
         }
         this.cars = newCars;
@@ -165,11 +167,6 @@ public class Board implements java.io.Serializable {
             while (forward.canMove(forward.cars.get(c), 1)) {
                 forward.move(forward.cars.get(c), 1);
                 forward.parent = new Board(this);
-                if(forward.hasParent()) {
-                    io.log("truuu");
-                } else {
-                    io.log("noooo");
-                }
                 path.add(new Board(forward));
             }      
             Board backward = new Board(this);

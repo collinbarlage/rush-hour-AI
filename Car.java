@@ -15,12 +15,12 @@ public class Car implements java.io.Serializable {
         // default does nothing
     }
 
-    public Car(Car parent) { // copy constuctor
-        this.id = parent.id;
-        this.size = parent.size;
-        this.xPos = parent.xPos;
-        this.yPos = parent.yPos;
-        this.vert = parent.vert;
+    public Car(Car og) { // copy constuctor
+        this.id = og.id;
+        this.size = og.size;
+        this.xPos = og.xPos;
+        this.yPos = og.yPos;
+        this.vert = og.vert;
     }
 
     public Car(String carId, int carX, int carY, int carSize, boolean carVert) {
