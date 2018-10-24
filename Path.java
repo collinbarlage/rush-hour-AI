@@ -78,17 +78,18 @@ public class Path implements java.io.Serializable {
         Path nextLevel = new Path();
 
         for (int i=0; i<path.size(); i++) {
-            Board b = Board bi = path.get(i);
+            Board b = path.get(i);
             bfsCounter++;
 
             //print parents
             Path route = new Path;
             route.add(b)
-            while (bi.hasParent()) {
-                route.add(bi);
-                bi = bi.parent;
+            while (b.hasParent()) {
+                route.add(b);
+                b = b.parent;
             }
             route.reversePrint();
+            Board b = path.get(i);
 
 
             if(b.isDone()) {

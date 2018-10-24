@@ -56,7 +56,7 @@ public class Main {
             case "test": // display all boards of each attempt to move each car +-direction
                 Path next = newBoard.next();
                 next.print();
-                io.log('and the parent is:');
+                io.log("and the parent is:");
                 if(next.get(2).hasParent()) {
                     next.get(2).parent.display();
                 } else {
