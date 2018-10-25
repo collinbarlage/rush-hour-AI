@@ -93,17 +93,15 @@ public class Path implements java.io.Serializable {
 
 
             if(b.isDone()) {
-                io.log("WE FOUND IT BOI" + bfsCounter);
+                io.log("WE FOUND IT BOI " + bfsCounter);
                 return;
             } else {
                 //build next level
-
-                nextLevel.append(ommit(b.next(), route));
+                nextLevel.append(ommit(ommit(b.next(), route)), nextLevel);
             }
         }
 
         bfs(nextLevel);
-        io.log("returning....");
         return;
     }
 
