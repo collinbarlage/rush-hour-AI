@@ -114,11 +114,11 @@ public class Path implements java.io.Serializable {
             isEqual = false;
             for(int j=0; j<history.size(); j++) {
                 if(og.get(i).equals(anti.get(j))) {
-                    isEqual == true;
+                    isEqual = true;
                     break;
                 }
             }
-            if(!isEqual) { newPath.add(og.get(i)) }
+            if(!isEqual) { newPath.add(og.get(i)); }
         }
     return newPath;
     }
