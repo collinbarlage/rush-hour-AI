@@ -75,7 +75,7 @@ public class Path implements java.io.Serializable {
 
     public void bfs(Path path) {
 
-        io.log("starting bfs with path size" + path.size())
+        io.log("starting bfs with path size" + path.size());
         Path nextLevel = new Path();
 
         for (int i=0; i<path.size(); i++) {
@@ -89,7 +89,7 @@ public class Path implements java.io.Serializable {
                 route.add(b);
                 b = b.parent;
             }
-            io.log("board has "+route.size()-1+" parents")
+            io.log("board has "+route.size()-1+" parents");
             route.reversePrint();
             b = path.get(i);
 
@@ -104,7 +104,7 @@ public class Path implements java.io.Serializable {
         }
 
         bfs(nextLevel);
-        io.log("returning....")
+        io.log("returning....");
         return;
     }
 
