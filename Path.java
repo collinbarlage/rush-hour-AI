@@ -97,7 +97,7 @@ public class Path implements java.io.Serializable {
                 return;
             } else {
                 //build next level
-                nextLevel.append(ommit(ommit(b.next(), route)), nextLevel);
+                nextLevel.append(ommit(ommit(b.next(), route), nextLevel));
             }
         }
 
