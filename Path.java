@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.Vector;
+import java.util.Collections;
 
 public class Path implements java.io.Serializable {
     IO io = new IO();
@@ -51,7 +52,7 @@ public class Path implements java.io.Serializable {
 
     public void reversePrint() {
         String lines[] = {"", "", "", "", "", "", "", ""};
-
+        Collections.reverse(boards);
         for (int b=0; b<boards.size(); b++) {
             for (int l=0; l<8; l++) {
                 lines[l] += boards.get(b).getLine(l) + " ";
