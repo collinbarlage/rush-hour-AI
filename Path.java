@@ -99,7 +99,7 @@ public class Path implements java.io.Serializable {
                 return;
             } else {
                 //build next level
-                io.log("next level!")
+                io.log("next level!");
                 nextLevel.append(b.next());
             }
         }
