@@ -112,7 +112,7 @@ public class Path implements java.io.Serializable {
         boolean isEqual;
         for(int i=0; i<og.size(); i++) {
             isEqual = false;
-            for(int j=0; j<history.size(); j++) {
+            for(int j=0; j<anti.size(); j++) {
                 if(og.get(i).equals(anti.get(j))) {
                     isEqual = true;
                     break;
