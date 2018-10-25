@@ -75,7 +75,6 @@ public class Path implements java.io.Serializable {
 
     public void bfs(Path path) {
 
-        io.log("starting bfs with path size" + path.size());
         Path nextLevel = new Path();
 
         for (int i=0; i<path.size(); i++) {
@@ -89,7 +88,6 @@ public class Path implements java.io.Serializable {
                 route.add(b);
                 b = b.parent;
             }
-            io.log("board has "+(route.size()-1)+" parents");
             route.reversePrint();
             b = path.get(i);
 
@@ -99,8 +97,8 @@ public class Path implements java.io.Serializable {
                 return;
             } else {
                 //build next level
-                io.log("next level!");
-                nextLevel.append(b.next());
+
+                nextLevel.append(ommit(b.next(), route));
             }
         }
 
@@ -109,6 +107,44 @@ public class Path implements java.io.Serializable {
         return;
     }
 
+    private Path ommit(Path og, Path anti) {
+        Path newPath = new Path();
+        boolean isEqual;
+        for(int i=0; i<og.size(); i++) {
+            isEqual = false;
+            for(int j=0; j<history.size(); j++) {
+                if(og.get(i).equals(anti.get(j))) {
+                    isEqual == true;
+                    break;
+                }
+            }
+            if(!isEqual) { newPath.add(og.get(i)) }
+        }
+    return newPath;
+    }
+
+
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+*/
+
+
+
+
+

@@ -199,4 +199,15 @@ public class Board implements java.io.Serializable {
         path.print();
     }
 
+    public boolean equals(Board b) {
+        for (int j=0; j<6; j++) {
+            for (int i=0; i<6; i++) { 
+                if(!this.tile(i,j).equals(b.tile(i,j))) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
 }
