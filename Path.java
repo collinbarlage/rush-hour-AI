@@ -89,7 +89,7 @@ public class Path implements java.io.Serializable {
                 route.add(b);
                 b = b.parent;
             }
-            io.log("board has "+route.size()-1+" parents");
+            io.log("board has "+(route.size()-1)+" parents");
             route.reversePrint();
             b = path.get(i);
 
