@@ -154,7 +154,7 @@ public class Path implements java.io.Serializable {
         Path reducedPath = new Path();
         reducedPath.parent = og.parent;
         for(int i=0; i<og.size(); i++) {
-            if(og.get(i).xIndex > 0 || xIndex == 2) {
+            if(og.get(i).xIndex > 0 || xIndex == 0) {
                 reducedPath.add(og.get(i));
             } else {
                 io.log("blocked index"+og.get(i).xIndex);
