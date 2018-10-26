@@ -97,7 +97,7 @@ public class Board implements java.io.Serializable {
         return str;
     }    
 
-    private int getBlockingIndex() {
+    public int getBlockingIndex() {
         String line = getLine(3);
         char[] lineChars = line.toCharArray();
         int index = 0;

@@ -14,13 +14,13 @@ public class Path implements java.io.Serializable {
     }
 
     public Path(Path og) { // copy constuctor
-        this.pathIndex = og.pathIndex;
-        for (int i=0; i<og.size(); i++) {
-            this.add(og.get(i));
-        }
-        if(og.hasParent()) {
-            this.parent = og.parent;
-        }
+        // this.pathIndex = og.pathIndex;
+        // for (int i=0; i<og.size(); i++) {
+        //     this.add(og.get(i));
+        // }
+        // if(og.hasParent()) {
+        //     this.parent = og.parent;
+        // }
     }
 
     public Board last() {
