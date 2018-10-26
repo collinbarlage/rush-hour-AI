@@ -134,7 +134,7 @@ public class Path implements java.io.Serializable {
             //check x index
             if(b.xIndex > xIndex) {
                 xIndex = b.xIndex;
-                io.log("x is now" + xIndex);
+                io.log("@path " + pathIndex +"... x is now" + xIndex);
             }
 
             if(b.isDone()) {
