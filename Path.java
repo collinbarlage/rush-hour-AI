@@ -153,7 +153,7 @@ public class Path implements java.io.Serializable {
         Path reducedPath = new Path();
         reducedPath.parent = og.parent;
         for(int i=0; i<og.size(); i++) {
-            if(b.xIndex >= xIndex) {
+            if(og.get(i).xIndex >= xIndex) {
                 reducedPath.add(og.get(i));
             }
         }
