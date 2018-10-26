@@ -6,6 +6,7 @@ public class Path implements java.io.Serializable {
     IO io = new IO();
 
     private int pathIndex = 0;
+    private int xIndex = 0; 
     private Vector<Board> boards = new Vector<Board>();
     public Path parent;
 
@@ -130,6 +131,11 @@ public class Path implements java.io.Serializable {
             route.print();
             b = path.get(i);
 
+            //check x index
+            if(b.xIndex > xIndex) {
+                xIndex = b.xIndex;
+            }
+
             if(b.isDone()) {
                 io.log(""+pathIndex);
                 return;
@@ -146,13 +152,8 @@ public class Path implements java.io.Serializable {
     public Path reduce(Path og) {
         Path reducedPath = new Path();
         reducedPath.parent = og.parent;
-        Vector<Integer> blockingIndexies = new Vector<>();
         for(int i=0; i<og.size(); i++) {
-            blockingIndexies.add(og.get(i).getBlockingIndex());
-        }
-        Collections.sort(blockingIndexies);
-        for(int i=0; i<og.size(); i++) {
-            if(blockingIndexies.get(i) == blockingIndexies.get(0)) {
+            if(b.xIndex >= xIndex) {
                 reducedPath.add(og.get(i));
             }
         }

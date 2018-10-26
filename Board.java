@@ -11,12 +11,15 @@ public class Board implements java.io.Serializable {
     public Vector<Board> childBoards = new Vector<Board>();
     public Board parent;
 
+    public int xIndex = 0; 
+
     public Board() {
         // default does nothing
     }
 
     public Board(Board og) { // copy constuctor
         this.parent = og.parent;
+        this.xIndex = og.xIndex;
 
         String newBoardArray [][] = new String[6][6];
         for (int j=0; j<6; j++) {
@@ -97,18 +100,6 @@ public class Board implements java.io.Serializable {
         return str;
     }    
 
-    public int getBlockingIndex() {
-        String line = getLine(3);
-        char[] lineChars = line.toCharArray();
-        int index = 0;
-        for (int i=7; i>=0; i--) {
-            if(lineChars[i] != ' ' && lineChars[i] != 'x') { 
-                index++; 
-            }
-        }
-        return index;
-    }
-
     public void display() {
         for (int y=0; y<8; y++) {
             io.log(getLine(y));
@@ -141,6 +132,8 @@ public class Board implements java.io.Serializable {
 
         if (isInBounds(antiX, antiY)) { this.boardArray[antiX][antiY] = " "; }
         this.boardArray[moveX][moveY] = car.id;
+
+        if(car.id.equals("x")) { xIndex++; }
 
         car.move(direction);
     }
