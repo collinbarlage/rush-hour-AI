@@ -146,7 +146,7 @@ public class Path implements java.io.Serializable {
                 nextLevel.append(reduce(potentialNextLevel));
             }
         }
-        bfs(nextLevel);
+        astar(nextLevel);
         return;
     }
 
