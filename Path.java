@@ -50,20 +50,8 @@ public class Path implements java.io.Serializable {
         }
     }
 
-    public void reversePrint() {
-        String lines[] = {"", "", "", "", "", "", "", ""};
-        Collections.reverse(boards);
-        for (int b=0; b<boards.size(); b++) {
-            for (int l=0; l<8; l++) {
-                lines[l] += boards.get(b).getLine(l) + " ";
-            }
-            if ((b+1)%6 == 0 || b == boards.size()-1) {
-                for (int l=0; l<8; l++) { 
-                    io.log(lines[l]); 
-                    lines[l] = "";
-                }
-            }
-        }
+    public void reverse() {
+        Collections.reverse(this.boards);
     }
 
     public void append(Path p) {
@@ -89,7 +77,8 @@ public class Path implements java.io.Serializable {
                 route.add(b);
                 b = b.parent;
             }
-            route.reversePrint();
+            route.reverse();
+            route.print();
             b = path.get(i);
 
 
