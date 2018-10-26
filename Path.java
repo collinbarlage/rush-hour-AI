@@ -74,8 +74,8 @@ public class Path implements java.io.Serializable {
             Path route = new Path();
             route.add(b);
             while (b.hasParent()) {
-                route.add(b);
                 b = b.parent;
+                route.add(b);
             }
             route.reverse();
             route.print();
