@@ -9,7 +9,6 @@ public class Board implements java.io.Serializable {
 
     public Vector<Car> cars = new Vector<Car>();
     public Vector<Board> childBoards = new Vector<Board>();
-
     public Board parent;
 
     public Board() {
@@ -19,7 +18,7 @@ public class Board implements java.io.Serializable {
     public Board(Board og) { // copy constuctor
         this.parent = og.parent;
 
-        String newBoardArray  [][] = new String[6][6];
+        String newBoardArray [][] = new String[6][6];
         for (int j=0; j<6; j++) {
             for (int i=0; i<6; i++) { 
                 newBoardArray[i][j] = og.tile(i,j);
@@ -98,6 +97,18 @@ public class Board implements java.io.Serializable {
         return str;
     }    
 
+    private int getBlockingIndex() {
+        String line = getLine(3);
+        char[] lineChars = line.toCharArray();
+        int index = 0;
+        for (int i=7; i>=0; i--) {
+            if(lineChars[i] != ' ' && lineChars[i] != 'x') { 
+                index++; 
+            }
+        }
+        return index;
+    }
+
     public void display() {
         for (int y=0; y<8; y++) {
             io.log(getLine(y));
@@ -150,13 +161,19 @@ public class Board implements java.io.Serializable {
     public boolean isDone() {
         String line = getLine(3);
         char[] lineChars = line.toCharArray();
-        int x = 0;
-        // for (int i=7; i>=0; i--) {
-        //     if(x == 2) { return true; }
-        //     if(lineChars[i] == 'x') { x++; } 
-        //     else if(lineChars[i] != ' ') { return false; }
-        // }
         return(lineChars[6] == 'x' && lineChars[5] == 'x');
+    }
+
+    public boolean canDone() {
+        String line = getLine(3);
+        char[] lineChars = line.toCharArray();
+        int x = 0;
+        for (int i=7; i>=0; i--) {
+            if(x == 2) { return true; }
+            if(lineChars[i] == 'x') { x++; } 
+            else if(lineChars[i] != ' ') { return false; }
+        }
+        return false;
     }
 
     public Path next() {

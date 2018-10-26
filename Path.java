@@ -4,17 +4,23 @@ import java.util.Collections;
 
 public class Path implements java.io.Serializable {
     IO io = new IO();
-    int bfsCounter = 0;
 
+    private int pathIndex = 0;
     private Vector<Board> boards = new Vector<Board>();
-    private Path parent;
+    public Path parent;
 
     public Path() {
         // default does nothing
     }
 
     public Path(Path og) { // copy constuctor
-        
+        this.pathIndex = og.pathIndex;
+        for (int i=0; i<og.size(); i++) {
+            this.add(og.get(i));
+        }
+        if(og.hasParent()) {
+            this.parent = og.parent;
+        }
     }
 
     public Board last() {
@@ -60,41 +66,6 @@ public class Path implements java.io.Serializable {
         }
     }
 
-
-
-    public void bfs(Path path) {
-
-        Path nextLevel = new Path();
-
-        for (int i=0; i<path.size(); i++) {
-            Board b = path.get(i);
-            bfsCounter++;
-
-            //print parents
-            Path route = new Path();
-            route.add(b);
-            while (b.hasParent()) {
-                b = b.parent;
-                route.add(b);
-            }
-            route.reverse();
-            route.print();
-            b = path.get(i);
-
-
-            if(b.isDone()) {
-                io.log("WE FOUND IT BOI " + bfsCounter);
-                return;
-            } else {
-                //build next level
-                nextLevel.append(ommit(ommit(b.next(), route), nextLevel));
-            }
-        }
-
-        bfs(nextLevel);
-        return;
-    }
-
     private Path ommit(Path og, Path anti) {
         Path newPath = new Path();
         boolean isEqual;
@@ -108,8 +79,86 @@ public class Path implements java.io.Serializable {
             }
             if(!isEqual) { newPath.add(og.get(i)); }
         }
-    return newPath;
+        return newPath;
     }
+
+
+
+    public void bfs(Path path) {
+        Path nextLevel = new Path();
+
+        for (int i=0; i<path.size(); i++) {
+            Board b = path.get(i);
+            pathIndex++;
+            //print parents
+            Path route = new Path();
+            route.add(b);
+            while (b.hasParent()) {
+                b = b.parent;
+                route.add(b);
+            }
+            route.reverse();
+            route.print();
+            b = path.get(i);
+
+            if(b.isDone()) {
+                io.log(""+pathIndex);
+                return;
+            } else {
+                //build next level
+                nextLevel.append(ommit(ommit(b.next(), route), nextLevel));
+            }
+        }
+        bfs(nextLevel);
+        return;
+    }
+
+    public void astar(Path path) {
+        Path nextLevel = new Path();
+
+        for (int i=0; i<path.size(); i++) {
+            Board b = path.get(i);
+            pathIndex++;
+            //print parents
+            Path route = new Path();
+            route.add(b);
+            while (b.hasParent()) {
+                b = b.parent;
+                route.add(b);
+            }
+            route.reverse();
+            route.print();
+            b = path.get(i);
+
+            if(b.isDone()) {
+                io.log(""+pathIndex);
+                return;
+            } else {
+                //build next level
+                Path potentialNextLevel = ommit(ommit(b.next(), route), nextLevel);
+                nextLevel.append(reduce(potentialNextLevel));
+            }
+        }
+        bfs(nextLevel);
+        return;
+    }
+
+    public Path reduce(Path og) {
+        Path reducedPath = new Path();
+        reducedPath.parent = og.parent;
+        Vector<Integer> blockingIndexies = new Vector<>();
+        for(int i=0; i<og.size(); i++) {
+            blockingIndexies.add(og.get(i).getBlockingIndex());
+        }
+        Collections.sort(blockingIndexies);
+        for(int i=0; i<og.size()-1; i++) {
+            io.log(" >"+blockingIndexies.get(i));
+            reducedPath.add(og.get(i));
+        }
+        return reducedPath;
+    }
+
+
 
 
 

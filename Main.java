@@ -55,6 +55,11 @@ public class Main {
                 next.bfs(next);
                 break;
 
+            case "astar": // Breadth first search
+                next = newBoard.next();
+                next.astar(next);
+                break;
+
             case "test": // display all boards of each attempt to move each car +-direction
                 next = newBoard.next();
                 next.print();
