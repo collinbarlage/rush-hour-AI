@@ -128,12 +128,13 @@ public class Path implements java.io.Serializable {
                 route.add(b);
             }
             route.reverse();
-            route.print();
+            //route.print();
             b = path.get(i);
 
             //check x index
             if(b.xIndex > xIndex) {
                 xIndex = b.xIndex;
+                io.log("x is now" + xIndex);
             }
 
             if(b.isDone()) {
