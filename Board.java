@@ -176,7 +176,6 @@ public class Board implements java.io.Serializable {
                 path.add(new Board(backward));
             }       
         }
-        path.reverse();
         return path;
     }
 
