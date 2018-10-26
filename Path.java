@@ -151,9 +151,10 @@ public class Path implements java.io.Serializable {
             blockingIndexies.add(og.get(i).getBlockingIndex());
         }
         Collections.sort(blockingIndexies);
-        for(int i=0; i<og.size()-1; i++) {
-            io.log(" >"+blockingIndexies.get(i));
-            reducedPath.add(og.get(i));
+        for(int i=0; i<og.size(); i++) {
+            if(blockingIndexies.get(i) == blockingIndexies.get(0)) {
+                reducedPath.add(og.get(i));
+            }
         }
         return reducedPath;
     }

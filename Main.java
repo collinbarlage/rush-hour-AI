@@ -63,19 +63,7 @@ public class Main {
                 break;
 
             case "test": // display all boards of each attempt to move each car +-direction
-                next = newBoard.next();
-                next.print();
-                Vector<Integer> blockingIndexies = new Vector<>();
-                for(int i=0; i<next.size(); i++) {
-                    blockingIndexies.add(next.get(i).getBlockingIndex());
-                }
-                Collections.sort(blockingIndexies);
-                for(int i=0; i<next.size(); i++) {
-                    io.log(" >"+blockingIndexies.get(i));
-                }
-
-
-
+  
                 break;
 
 
