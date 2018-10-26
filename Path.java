@@ -156,6 +156,8 @@ public class Path implements java.io.Serializable {
         for(int i=0; i<og.size(); i++) {
             if(og.get(i).xIndex > 0 && xIndex > 2) {
                 reducedPath.add(og.get(i));
+            } else {
+                io.log("blocked index"+og.get(i).xIndex);
             }
         }
         return reducedPath;
