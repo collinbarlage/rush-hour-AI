@@ -139,9 +139,7 @@ public class Path implements java.io.Serializable {
                     bMove.parent = b;
                     b = bMove;
                 }
-                route.reverse();
                 route.add(new Board(b));
-                route.reverse();
                 route.print();
             }
 
