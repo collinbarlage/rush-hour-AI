@@ -131,6 +131,16 @@ public class Path implements java.io.Serializable {
             route.print();
             b = path.get(i);
 
+            //if solution is in next, jump to that solution
+            if(b.canBeDone()) {
+                while(!b.isDone()) {
+                    bMove.move(bMove.getX(), 1);
+                    bMove.parent = b;
+                    b = bMove;
+                    path.add(new Board(b));
+                }
+            }
+
             if(b.isDone()) {
                 io.log(""+pathIndex);
                 return;

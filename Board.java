@@ -138,17 +138,13 @@ public class Board implements java.io.Serializable {
         car.move(direction);
     }
 
-    public void printBoards(Vector<Board> boards) {
-        String lines[] = {"", "", "", "", "", "", "", ""};
-
-        for (int b=0; b<boards.size(); b++) {
-            for (int l=0; l<8; l++) {
-                lines[l] += boards.get(b).getLine(l) + " ";
+    public Car getX() {
+        for(int i=0; i<cars.size; i++) {
+            if(cars.get(i).id.equals("x")) {
+                return cars.get(i);
             }
         }
-        for (int l=0; l<8; l++) {
-            io.log(lines[l]);
-        }
+        return null;
     }
 
     public boolean isDone() {
@@ -157,7 +153,7 @@ public class Board implements java.io.Serializable {
         return(lineChars[6] == 'x' && lineChars[5] == 'x');
     }
 
-    public boolean canDone() {
+    public boolean canBeDone() {
         String line = getLine(3);
         char[] lineChars = line.toCharArray();
         int x = 0;
