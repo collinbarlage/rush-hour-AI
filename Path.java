@@ -120,19 +120,8 @@ public class Path implements java.io.Serializable {
         for (int i=0; i<path.size(); i++) {
             Board b = path.get(i);
             pathIndex++;
+            //print parents
             Path route = new Path();
-
-            //if solution is in next, jump to that solution
-            if(b.canBeDone()) {
-                Board bMove = new Board(b);
-                while(!b.isDone()) {
-                    bMove.move(bMove.getX(), 1);
-                    bMove.parent = b;
-                    b = bMove;
-                }
-                // path.add(new Board(b));
-            }
-
             route.add(b);
             while (b.hasParent()) {
                 b = b.parent;
@@ -141,6 +130,17 @@ public class Path implements java.io.Serializable {
             route.reverse();
             route.print();
             b = path.get(i);
+
+            //if solution is in next, jump to that solution
+            if(b.canBeDone()) {
+                Board bMove = new Board(b);
+                while(!b.isDone()) {
+                    bMove.move(bMove.getX(), 1);
+                    bMove.parent = b;
+                    b = bMove;
+                    path.add(new Board(b));
+                }
+            }
 
             if(b.isDone()) {
                 io.log(""+pathIndex);
