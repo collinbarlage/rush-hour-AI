@@ -128,7 +128,7 @@ public class Path implements java.io.Serializable {
                 route.add(b);
             }
             route.reverse();
-            route.print();
+            // route.print();
             b = path.get(i);
 
             //check x index
@@ -155,6 +155,7 @@ public class Path implements java.io.Serializable {
         Path reducedPath = new Path();
         reducedPath.parent = og.parent;
         for(int i=0; i<og.size(); i++) {
+            io.log("current x: " +  og.get(i).xIndex + "... over all: "+ xIndex);
             if(og.get(i).xIndex == 0 && xIndex > 3 ) {
                 //do nothing lol
             } else if(og.get(i).xIndex > 0 || xIndex == 0 ) {
