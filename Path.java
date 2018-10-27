@@ -133,6 +133,7 @@ public class Path implements java.io.Serializable {
 
             //if solution is in next, jump to that solution
             if(b.canBeDone()) {
+                Board bMove = new Board(b);
                 while(!b.isDone()) {
                     bMove.move(bMove.getX(), 1);
                     bMove.parent = b;

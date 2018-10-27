@@ -139,7 +139,7 @@ public class Board implements java.io.Serializable {
     }
 
     public Car getX() {
-        for(int i=0; i<cars.size; i++) {
+        for(int i=0; i<cars.size(); i++) {
             if(cars.get(i).id.equals("x")) {
                 return cars.get(i);
             }
