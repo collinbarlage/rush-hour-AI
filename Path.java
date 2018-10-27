@@ -160,9 +160,7 @@ public class Path implements java.io.Serializable {
             io.log("current x: " +  og.get(i).xIndex + "... over all: "+ xIndex);
             if(og.get(i).xIndex == 2 && xIndex == 3 ) {
                 //do nothing lol
-            } else if(og.get(i).xIndex < xIndex - 1) {
-                io.log("lol skip this");
-            } else if(og.get(i).xIndex > 0 || xIndex == 0 ) {
+            }  else if(og.get(i).xIndex > 0 || xIndex == 0 ) {
                 io.log("it's lit");
                 reducedPath.add(og.get(i));
             }
