@@ -131,10 +131,7 @@ public class Path implements java.io.Serializable {
             // route.print();
             b = path.get(i);
 
-            //check x index
-            if(b.xIndex > xIndex) {
-                xIndex = b.xIndex;
-            }
+
             //check for that last solution
             //TODO
 
@@ -152,13 +149,19 @@ public class Path implements java.io.Serializable {
     }
 
     public Path reduce(Path og) {
+
         Path reducedPath = new Path();
         reducedPath.parent = og.parent;
         for(int i=0; i<og.size(); i++) {
+            //check x index
+            if(og.get(i).xIndex > xIndex) {
+                xIndex = b.xIndex;
+            }
             io.log("current x: " +  og.get(i).xIndex + "... over all: "+ xIndex);
-            if(og.get(i).xIndex == 0 && xIndex > 3 ) {
+            if(og.get(i).xIndex == 2 && xIndex == 3 ) {
                 //do nothing lol
             } else if(og.get(i).xIndex > 0 || xIndex == 0 ) {
+                io.log("it's lit");
                 reducedPath.add(og.get(i));
             }
         }
