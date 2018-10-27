@@ -155,7 +155,7 @@ public class Path implements java.io.Serializable {
         for(int i=0; i<og.size(); i++) {
             //check x index
             if(og.get(i).xIndex > xIndex) {
-                xIndex = b.xIndex;
+                xIndex = og.get(i).xIndex;
             }
             io.log("current x: " +  og.get(i).xIndex + "... over all: "+ xIndex);
             if(og.get(i).xIndex == 2 && xIndex == 3 ) {
