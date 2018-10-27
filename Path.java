@@ -128,12 +128,8 @@ public class Path implements java.io.Serializable {
                 route.add(b);
             }
             route.reverse();
-            // route.print();
+            route.print();
             b = path.get(i);
-
-
-            //check for that last solution
-            //TODO
 
             if(b.isDone()) {
                 io.log(""+pathIndex);
@@ -157,11 +153,11 @@ public class Path implements java.io.Serializable {
             if(og.get(i).xIndex > xIndex) {
                 xIndex = og.get(i).xIndex;
             }
-            io.log("current x: " +  og.get(i).xIndex + "... over all: "+ xIndex);
+            // io.log("current x: " +  og.get(i).xIndex + "... over all: "+ xIndex);
             if(og.get(i).xIndex == 2 && xIndex == 3 ) {
                 //do nothing lol
             }  else if(og.get(i).xIndex > 0 || xIndex == 0 ) {
-                io.log("it's lit");
+                // io.log("it's lit");
                 reducedPath.add(og.get(i));
             }
         }
